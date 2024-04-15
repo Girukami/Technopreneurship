@@ -1,0 +1,311 @@
+.product-info,
+.checkout,
+.order-info {
+    @include contWNav;
+    display: flex;
+
+    .img-cont {
+        max-width: 500px;
+        max-height: 500px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        img {
+            max-width: 500px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+    }
+
+    // ----- for user info icon -----
+    .user-info {
+        width: 100%;
+    }
+
+    .right-side {
+        width: 60%;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 500px;
+        height: fit-content;
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: $container-color;
+
+            div {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+
+                .name {
+                    font-size: 28px;
+                }
+
+                span {
+                    font-size: 20px;
+                    pointer-events: none;
+                    color: darken($color: $container-color, $amount: 4%);
+                }
+
+                p {
+                    font-size: 24px;
+                    font-weight: 500;
+                    pointer-events: none;
+                }
+            }
+            
+            input, textarea{
+                padding: 12px 15px;
+                border-radius: 10px;
+                width: 80%;
+                font-size: 20px;
+            }
+
+            .customer-info{
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+
+                div{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    align-items: baseline;
+                    gap: 8px;
+                    margin-bottom: 10px;
+
+
+                    .contact_num{
+                        width: 50%;
+                    }
+                }
+            }
+
+            .user-info-inputs-cont {
+                flex-direction: column;
+                align-items: baseline;
+                margin-bottom: 20px;
+                gap: 5px;
+
+                input {
+                    margin-bottom: 10px;
+                    width: 70%;
+                }
+            }
+
+            .description.user-desc-inputs-cont {
+                gap: 25px;
+
+                div {
+                    flex-direction: column;
+                    align-items: baseline;
+                    width: 100%;
+
+                    input {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .description {
+                margin-top: 20px;
+                gap: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: baseline;
+
+                .service_desc{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: baseline;
+                    width: 100%;
+
+                    textarea{
+                        height: 200px;
+                        width: 100%;
+                        
+                    }
+                }
+            }
+
+            .desc-text {
+                text-align: justify;
+                font-size: 18px;
+                margin-top: 15px;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 15px;
+
+            a,
+            button,
+            input {
+                @include mainButton;
+                text-align: center;
+            }
+
+            a,
+            input {
+                background: $main-color;
+
+                &:hover {
+                    @include lighten($main-color);
+                }
+            }
+
+            button {
+                background: $text-color-red;
+
+                &:hover {
+                    @include lighten($text-color-red);
+                }
+            }
+        }
+
+        .action-button {
+            @include mainButton;
+            background: $main-color;
+
+            &:hover {
+                @include lighten($main-color);
+            }
+        }
+    }
+
+    .modal {
+        @include confirmationModal;
+
+        .buttons {
+
+            input {
+                background: $text-color-red;
+
+                &:hover {
+                    @include lighten($text-color-red);
+                }
+            }
+        }
+    }
+
+    .overlay {
+        top: 0;
+        @include inactiveOverlay;
+    }
+}
+
+// Edit and Create Page
+.edit,
+.create {
+    .upload {
+        position: absolute;
+        bottom: 20px;
+        padding: 8px;
+
+        button {
+            @include flexCenter(row, center, center);
+            @include mainButton;
+            background: $container-color;
+            color: $text-color-green;
+            font-size: 18px;
+            padding: 10px 30px;
+            box-shadow: $box-shadow2;
+
+            &:hover {
+                background: $main-color;
+                color: $container-color;
+            }
+
+            input {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: 99;
+                pointer-events: auto;
+                display: block;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .right-side {
+        .info {
+            input {
+                margin-bottom: 5px;
+                height: 50px;
+                width: 50%;
+                @include inputfields;
+                font-size: 18px;
+            }
+        }
+
+        button {
+            @include mainButton;
+            width: 100%;
+            background: $main-color;
+
+            &:hover {
+                @include lighten($main-color);
+            }
+        }
+    }
+
+    .modal {
+        @include confirmationModal;
+    }
+
+    .overlay {
+        top: 0;
+        @include inactiveOverlay;
+    }
+}
+
+// Create Page
+.create {
+    .img-cont {
+        border: 1px solid $main-color;
+        border-radius: 15px;
+        @include flexCenter;
+        position: relative;
+        width: 100%;
+
+        .upload {
+            top: 60%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.confirmation {
+    .modal {
+        @include activeModal;
+    }
+
+    .overlay {
+        @include activeOverlay;
+    }
+}
+
+.order-info .right-side {
+    justify-content: flex-start;
+    gap: 30px;
+
+    .info .row{
+        flex-direction: column;
+        align-items: baseline;
+    }
+
+    .action-button{
+        margin-top: 30px;
+    }
+}

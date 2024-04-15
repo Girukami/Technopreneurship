@@ -1,0 +1,90 @@
+@import './product-info';
+
+.checkout,
+.order-info {
+    .right-side {
+        .info {
+            padding-bottom: 20px;
+            border-bottom: 1px solid $main-color;
+
+            .row {
+                justify-content: space-between;
+
+                .quantity {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        .payment {
+            margin-bottom: 15px;
+
+            .label {
+                @include label;
+                margin: 10px 0 25px;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                div {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    color: $container-color;
+
+                    span {
+                        font-size: 20px;
+                        pointer-events: none;
+                        color: darken($color: $container-color, $amount: 3%);
+                    }
+
+                    p {
+                        font-size: 24px;
+                        font-weight: 500;
+                        pointer-events: none;
+                    }
+
+                    input,
+                    select,
+                    option {
+                        width: 40%;
+                        height: 40px;
+                        border-radius: 10px;
+                        border: 1px solid gray;
+                        padding: 20px 10px;
+                        font-size: 17px;
+                    }
+
+                    select,
+                    option {
+                        color: $text-color;
+                        height: auto;
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+
+        .buttons {
+            flex-direction: row;
+
+            input,
+            button {
+                width: 100%;
+            }
+        }
+    }
+
+    .modal {
+        .buttons {
+
+            button,
+            input {
+                width: 100%;
+            }
+        }
+    }
+}

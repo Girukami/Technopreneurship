@@ -1,0 +1,84 @@
+/** @format */
+
+@import url(Poppins/poppins.css);
+@import "./global/mixin";
+@import "./global/variable";
+
+* {
+	font-family: "Poppins";
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	outline: none;
+	text-decoration: none;
+}
+
+body {
+	background: $main-background;
+}
+
+// ------------------------------------
+// Global Classes
+.text-w-line {
+	@include textWLine;
+}
+
+.popups {
+	position: fixed;
+	width: 35%;
+	@include flexCenter(row, space-between, center);
+	text-align: center;
+	padding: 15px 30px;
+	@include centerHorizontal;
+	bottom: 5%;
+	color: $container-color;
+	border-radius: 10px;
+	background: $text-color;
+	z-index: 2;
+
+	.close {
+		height: 20px;
+		width: 20px;
+		cursor: pointer;
+
+	}
+}
+
+.popups.error {
+	color: $text-color-red;
+}
+
+.empty {
+	position: absolute;
+	@include transformCenter;
+	color: $container-color;
+	font-weight: 500;
+	font-size: 20px;
+}
+
+// ------------------------------------
+
+// ---------- Navbar ----------
+@import "./global/navbar";
+
+// ---------- Content ----------
+// ---------- Login ----------
+@import "./global/login";
+
+// ---------- Home ----------
+@import "./global/home";
+
+// ---------- Product Info ----------
+// CRUD included
+@import "./global/product-info";
+
+// ---------- Order List ----------
+// also for customers list
+@import './global/order';
+
+// ---------- Checkout ----------
+@import './global/checkout';
+
+// ---------- Order Info ----------
+@import './global/_order-info';

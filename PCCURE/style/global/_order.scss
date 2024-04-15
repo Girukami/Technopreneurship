@@ -1,0 +1,40 @@
+.order {
+    @include contWNav;
+
+    .label {
+        @include label;
+        margin-bottom: 5px;
+    }
+
+    .orders {
+        margin-bottom: 15px;
+
+        a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: $text-color;
+            background: $container-color2;
+            margin-bottom: 8px;
+            color: $container-color;
+            border-radius: 10px;
+            padding: 10px;
+            padding-right: 30px;
+            gap: 20px;
+
+            &:hover {
+                @include lighten($container-color2);
+            }
+
+            img {
+                border-radius: 5px;
+                object-fit: cover;
+            }
+
+            .payment-status {
+                margin-left: auto;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

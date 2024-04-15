@@ -1,0 +1,182 @@
+/** @format */
+// ---------- Simplify ----------
+@mixin flexCenter($direction: column, $justify: center, $align: center) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin textWLine {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 16px;
+
+	p {
+		position: absolute;
+		font-size: 16px;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 0 8px;
+		background: $container-color;
+		color: $text-color-green;
+	}
+
+	span {
+		height: 1px;
+		width: 100%;
+		background: $main-background;
+		display: block;
+	}
+}
+
+@mixin label {
+	p {
+		font-size: 20px;
+		font-weight: 500;
+		color: $container-color;
+		text-transform: uppercase;
+	}
+
+}
+
+@mixin transformCenter {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin centerVertical {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin centerHorizontal {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+// ---------- Input Fields ---------- 
+
+@mixin inputfields {
+	border-radius: 8px;
+	padding: 10px 12px;
+	border: 1px solid $main-color;
+	font-size: 16px;
+	background: $container-color;
+
+	&:focus {
+		border-width: 2px;
+	}
+}
+
+// ---------- Buttons ----------
+@mixin mainButton {
+	padding: 14px;
+	border-radius: 8px;
+	font-size: 20px;
+	font-weight: 500;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	transition: 0.1s;
+}
+
+@mixin lighten($color-picked) {
+	background: lighten($color: $color-picked, $amount: 4%);
+}
+
+@mixin darken($color-picked) {
+	background: darken($color: $color-picked, $amount: 4%);
+}
+
+// ---------- Modal ----------
+@mixin inactiveModal {
+	opacity: 0;
+	pointer-events: none;
+	z-index: 4;
+	overflow: hidden;
+	position: absolute;
+	background: $container-color;
+	box-shadow: $box-shadow1;
+	display: flex;
+	flex-direction: column;
+	transition: 0.1s ease;
+}
+
+@mixin inactiveOverlay {
+	position: absolute;
+	background: rgba(0, 0, 0, 0.05);
+	width: 100%;
+	height: 100vh;
+	left: 0;
+	z-index: 3;
+	opacity: 0;
+	pointer-events: none;
+	transition: 0.3s;
+}
+
+@mixin activeModal {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+@mixin activeOverlay {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+@mixin confirmationModal {
+	@include inactiveModal;
+	@include transformCenter;
+	padding: 25px 45px;
+	border-radius: 15px;
+	text-align: center;
+	gap: 30px;
+	font-size: 20px;
+	max-width: 450px;
+
+	p {
+		margin-top: 8px;
+		font-weight: 500;
+		color: $text-color;
+	}
+
+	.buttons {
+		display: flex;
+		justify-content: space-between;
+		gap: 30px;
+
+		button,
+		input {
+			@include mainButton;
+			padding: 15px 20px;
+		}
+
+		button {
+			background: $main-background;
+
+			&:hover {
+				@include lighten($main-background);
+			}
+		}
+
+		input {
+			background: $main-color;
+
+			&:hover {
+				@include lighten($main-color);
+			}
+		}
+	}
+}
+
+// ---------- Containers ----------
+@mixin contWNav {
+	min-height: calc(100vh - 60px);
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 3%;
+}

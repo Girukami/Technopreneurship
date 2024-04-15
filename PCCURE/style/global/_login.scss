@@ -1,0 +1,172 @@
+.login {
+    height: 100vh;
+    @include flexCenter(row);
+    color: $text-color;
+    position: relative;
+
+    .login-cont {
+        padding: 30px 50px;
+        background: $container-color;
+        border-radius: 20px;
+        max-width: 500px;
+        width: 100%;
+        @include flexCenter(column);
+        gap: 35px;
+
+        .popups.success {
+            background: rgb(77, 197, 77);
+        }
+
+        .heading {
+            @include flexCenter(row);
+            gap: 20px;
+
+            img{
+                height: 100px;
+                width: 100px;
+            }
+
+            p {
+                font-weight: 500;
+                font-size: 40px;
+            }
+        }
+
+        .inputs {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 30px;
+
+            div {
+                position: relative;
+                display: flex;
+
+                label {
+                    position: absolute;
+                    padding: 2px 6px;
+                    z-index: 1;
+                    top: -15px;
+                    left: 20px;
+                    background: $container-color;
+                }
+            }
+
+            input {
+                width: 100%;
+                height: 56px;
+                @include inputfields;
+            }
+        }
+
+        .actions {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 5px;
+
+            .remember {
+                input {
+                    cursor: pointer;
+                    background: green;
+                }
+
+                label {
+                    cursor: pointer;
+                }
+            }
+
+            .buttons {
+                @include flexCenter;
+                gap: 15px;
+
+                :is(input, button, .signup-btn, .login-btn) {
+                    @include mainButton;
+                    width: 100%;
+                    transition: 0.1s;
+                    cursor: pointer;
+                }
+
+                input {
+                    background: $main-color;
+
+                    &:hover {
+                        @include lighten($main-color);
+                    }
+                }
+
+                button,
+                .signup-btn {
+                    background: $text-color;
+                    text-align: center;
+
+                    &:hover {
+                        @include lighten($text-color);
+                    }
+                }
+            }
+
+            .forgot {
+                margin-left: auto;
+                width: fit-content;
+                color: $main-color;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .popups {
+        top: 5%;
+        border-radius: 10px;
+        @include lighten($text-color-red);
+        color: $container-color;
+        width: 500px;
+        bottom: unset;
+    }
+
+    .popups.customer {
+        top: 2%;
+    }
+}
+
+// ---------- Signup ----------
+.login.signup {
+    .login-cont {
+        max-width: 850px;
+
+        .inputs {
+            gap: 28px 18px;
+            flex-direction: row;
+
+            div {
+                flex: 2 0 12rem;
+            }
+        }
+
+        .actions {
+            .signup-btn {
+                background: $main-color;
+
+                &:hover {
+                    @include lighten($main-color);
+                }
+            }
+
+            .login-btn {
+                background: $text-color;
+                text-align: center;
+
+                &:hover {
+                    @include lighten($text-color);
+                }
+            }
+        }
+    }
+
+
+}

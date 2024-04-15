@@ -1,0 +1,139 @@
+.header {
+    width: 100%;
+    background: $container-color;
+
+    nav {
+        background: $container-color;
+        display: flex;
+        justify-content: space-between;
+        min-height: 60px;
+        max-width: 1400px;
+        margin: auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 1;
+
+        .logo {
+            @include flexCenter(row, center, center);
+            gap: 10px;
+
+            img {
+                height: 60px;
+                width: 60px;
+            }
+
+            p {
+                font-weight: 500;
+                font-size: 26px;
+                color: $text-color;
+            }
+        }
+
+        .mid-content {
+            @include flexCenter(row, center, center);
+            gap: 30px;
+
+            a {
+                color: $main-color;
+                font-weight: 500;
+                @include flexCenter(row, center);
+                height: 100%;
+                padding: 0 5px;
+
+                &:hover {
+                    border-bottom: 3px solid $main-color;
+                }
+            }
+
+            .active {
+                border-bottom: 3px solid $main-color;
+            }
+
+            .search {
+                display: flex;
+                height: 40px;
+                width: 240px;
+                border: 1px solid $main-color;
+                border-radius: 5px;
+
+                input {
+                    width: 85%;
+                    height: 100%;
+                    border: none;
+                    background: transparent;
+                    padding: 8px;
+                    font-size: 16px;
+                }
+
+                img {
+                    width: 15%;
+                    height: 25px;
+                    margin: 5px 5px auto auto;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .account {
+            @include flexCenter(row, space-between, center);
+            border: 1px solid $container-color2;
+            gap: 10px;
+            margin: auto 0;
+            height: 45px;
+            padding: 5px 15px 5px 5px;
+            border-radius: 24px;
+            min-width: 224px;
+            max-width: 224px;
+            cursor: pointer;
+
+            p {
+                color: $main-background;
+                max-width: 130px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            .icon {
+                height: 15px;
+                width: 15px;
+                background: lightpink;
+            }
+        }
+
+        .action {
+            min-width: 224px;
+            border-radius: 8px;
+            right: 20px;
+            top: 50%;
+            @include inactiveModal;
+
+            a {
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+                color: $text-color;
+
+                &:hover {
+                    color: $main-color;
+                    @include darken($container-color);
+                }
+            }
+        }
+
+        .nav-overlay {
+            @include inactiveOverlay;
+        }
+    }
+
+    nav.active {
+        .action {
+            top: 94%;
+            @include activeModal;
+        }
+
+        .nav-overlay {
+            @include activeOverlay;
+        }
+    }
+}
